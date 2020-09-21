@@ -24,51 +24,41 @@ std::string toMD5(std::string &_msg)
 
 void FindMD5Recursive(std::string md5,std::string msg="a",  size_t pos=0)
 {
-	if(md5==toMD5(msg))
-		return;
-	/*if(msg[pos]=='z')
-		{
-			if(pos==msg.size()-1)
-			{
-				for(size_t i=0;i<=pos;i++)
-					msg[i]='a';
-				msg+='a';
-			}
-			if()
-				pos++;
-			std::cout << " 1: " << msg << " " << pos << std::endl;
-			FindMD5Recursive(md5,msg, pos);
-		}
-	else
-		{
-			msg[pos]++;
-			if(pos==msg.size()-1)
-			{
-				pos=0;
-			}
-			std::cout << " 2:  " << msg  << " " << pos << std::endl;
-			FindMD5Recursive(md5,msg, pos);
-		}*/
-	if(msg[pos]=='z')
+	if(md5==toMD5(msg) || pos==10)
 	{
-		std::cout << " 1: " << msg << " " << pos << std::endl;
-		if(pos>0)
-		{
-			msg[pos]='a';
-			pos--;
-		}
-		else
-		{
-			for(size_t i=0;i<msg.size();i++)
-					msg[i]='a';
-			msg+='a';
-			pos++;
-		}
+		std::cout << " 111: " << msg << std::endl;
+		sleep(2);
+		return;
 	}
 	else
 	{
-		std::cout << " 2: " << msg << " " << pos << std::endl;
-		msg[pos]++;
+			if(msg[pos]=='z')
+			{
+				if(pos==0)
+				{
+					msg[pos]='a';
+					pos=msg.size();
+					msg+='a';
+					std::cout << " 1: " << msg << " " << pos << std::endl;
+				}
+				else
+				{
+					msg[pos]='a';
+					std::cout << " 2: " << msg << " " << pos << std::endl;
+					pos--;
+				}
+					
+			}
+			else if(pos!=msg.size()-1)
+			{
+				msg[pos]++;
+				pos++;
+			}
+			else
+			{
+				msg[pos]++;
+				std::cout << " 1a: " << msg << " " << pos << std::endl;
+			}
 	}
 	FindMD5Recursive(md5,msg, pos);
 }
