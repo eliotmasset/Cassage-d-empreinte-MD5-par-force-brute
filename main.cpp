@@ -26,8 +26,7 @@ void FindMD5Recursive(std::string md5,std::string msg="a",  size_t pos=0)
 {
 	if(md5==toMD5(msg) || pos==10)
 	{
-		std::cout << " 111: " << msg << std::endl;
-		sleep(2);
+		std::cout << "Trouvé ! " << msg << std::endl;
 		return;
 	}
 	else
@@ -43,16 +42,14 @@ void FindMD5Recursive(std::string md5,std::string msg="a",  size_t pos=0)
 				}
 				else
 				{
-					msg[pos]='a';
+					msg[pos--]='a';
 					std::cout << " 2: " << msg << " " << pos << std::endl;
-					pos--;
 				}
 					
 			}
 			else if(pos!=msg.size()-1)
 			{
-				msg[pos]++;
-				pos++;
+				msg[pos++]++;
 			}
 			else
 			{
@@ -71,16 +68,7 @@ int main(int argc, char *argv[]){
 		std::string msg = argv[1];
 		std::string md5msg = toMD5(msg);
 		
-		//Facultatif :
-		std::cout << "Message: " << msg << std::endl;
-		std::cout << "Digest: " ;
-		CryptoPP::StringSource(md5msg, true, new CryptoPP::Redirector(encoder));
-		std::cout << std::endl;
-		//;
-		
 		FindMD5Recursive(md5msg);
-		
-		std::cout << "Trouvé ! "; 
 		
 	}
 	else
