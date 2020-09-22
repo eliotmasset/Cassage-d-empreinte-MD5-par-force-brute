@@ -45,7 +45,8 @@ void FindMD5(std::string md5,std::string msg="a",  size_t pos=0)
 		}
 		else if(pos!=msg.size()-1)
 		{
-			msg[pos++]++;
+			msg[pos]++;
+			pos=msg.size()-1;
 		}
 		else
 		{
