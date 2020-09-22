@@ -10,6 +10,13 @@
 #include "cryptopp/md5.h"
 #include "cryptopp/hex.h"
 
+struct paramThread_FindTextMD5
+{
+	std::string md5;
+	char minC;
+	char maxC;
+};
+
 std::string toMD5(std::string &_msg)
 {
 	std::string digest;
@@ -21,25 +28,27 @@ std::string toMD5(std::string &_msg)
 	return digest;
 }
 
-std::string FindTextMD5(std::string md5)
+std::string FindTextMD5(void* p_struct)
 {
+	struct paramThread_FindTextMD5 *param = (struct paramThread_FindTextMD5 *)p_struct;
 	std::cout << "Recherche de l'empreinte md5 :" << std::endl;
 	std::cout << "Attention cette opération peut prendre du temps" << std::endl;
 	size_t pos=0;
-	std::string msg="a";
-	while(md5!=toMD5(msg))
+	std::string msg="";
+	msg+=param->minC;
+	while(param->md5!=toMD5(msg))
 	{
-		if(msg[pos]=='a')
+		if(msg[pos]==param->maxC)
 		{
 			if(pos==0)
 			{
-				msg[pos]='a';
+				msg[pos]=param->minC;
 				pos=msg.size()-1;
-				msg+='a';
+				msg+=param->minC;
 			}
 			else
 			{
-				msg[pos--]='a';
+				msg[pos--]=param->minC;
 			}
 					
 		}
@@ -63,7 +72,14 @@ int main(int argc, char *argv[]){
 		CryptoPP::HexEncoder encoder(new CryptoPP::FileSink(std::cout));
 		std::string msg = argv[1];
 		std::string md5msg = toMD5(msg);
-		std::string findMsg = FindTextMD5(md5msg);
+		
+		paramThread_FindTextMD5 param;
+		param.md5=md5msg;
+		param.minC='a';
+		param.maxC='z';
+		
+		std::string findMsg = FindTextMD5((void*)&param);
+		
 		
 		std::cout << "L'empreinte md5 : \"" ;
 		CryptoPP::StringSource(md5msg, true, new CryptoPP::Redirector(encoder));
