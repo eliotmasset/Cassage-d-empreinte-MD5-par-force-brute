@@ -22,24 +22,25 @@ std::string toMD5(std::string &_msg)
 	return digest;
 }
 
-void FindMD5(std::string md5,std::string msg="a",  size_t pos=0)
+std::string FindTextMD5(std::string md5)
 {
-	
-	while(md5!=toMD5(msg) && pos!=10)
+	std::cout << "Recherche de l'empreinte md5 :" << std::endl;
+	std::cout << "Attention cette opération peut prendre du temps" << std::endl;
+	size_t pos=0;
+	std::string msg="a";
+	while(md5!=toMD5(msg))
 	{
-		if(msg[pos]=='z')
+		if(msg[pos]=='a')
 		{
 			if(pos==0)
 			{
 				msg[pos]='a';
-				pos=msg.size();
+				pos=msg.size()-1;
 				msg+='a';
-				std::cout << " 1: " << msg << " " << pos << std::endl;
 			}
 			else
 			{
 				msg[pos--]='a';
-				std::cout << " 2: " << msg << " " << pos << std::endl;
 			}
 					
 		}
@@ -51,9 +52,9 @@ void FindMD5(std::string md5,std::string msg="a",  size_t pos=0)
 		else
 		{
 			msg[pos]++;
-			std::cout << " 1a: " << msg << " " << pos << std::endl;
 		}
 	}
+	return msg;
 }
 
 int main(int argc, char *argv[]){
@@ -63,8 +64,11 @@ int main(int argc, char *argv[]){
 		CryptoPP::HexEncoder encoder(new CryptoPP::FileSink(std::cout));
 		std::string msg = argv[1];
 		std::string md5msg = toMD5(msg);
+		std::string findMsg = FindTextMD5(md5msg);
 		
-		FindMD5(md5msg);
+		std::cout << "L'empreinte md5 : \"" ;
+		CryptoPP::StringSource(md5msg, true, new CryptoPP::Redirector(encoder));
+		std::cout << "\" est associée à la chaine : \"" << findMsg << "\"." << std::endl;
 		
 	}
 	else
