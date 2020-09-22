@@ -24,42 +24,33 @@ std::string toMD5(std::string &_msg)
 
 void FindMD5(std::string md5,std::string msg="a",  size_t pos=0)
 {
-	bool isFind = false;
 	
-	while(!isFind)
+	while(md5!=toMD5(msg) && pos!=10)
 	{
-		if(md5==toMD5(msg) || pos==10)
+		if(msg[pos]=='z')
 		{
-			std::cout << "Trouvé ! " << msg << std::endl;
-			return;
-		}
-		else
-		{
-			if(msg[pos]=='z')
+			if(pos==0)
 			{
-				if(pos==0)
-				{
-					msg[pos]='a';
-					pos=msg.size();
-					msg+='a';
-					std::cout << " 1: " << msg << " " << pos << std::endl;
-				}
-				else
-				{
-					msg[pos--]='a';
-					std::cout << " 2: " << msg << " " << pos << std::endl;
-				}
-					
-			}
-			else if(pos!=msg.size()-1)
-			{
-				msg[pos++]++;
+				msg[pos]='a';
+				pos=msg.size();
+				msg+='a';
+				std::cout << " 1: " << msg << " " << pos << std::endl;
 			}
 			else
 			{
-				msg[pos]++;
-				std::cout << " 1a: " << msg << " " << pos << std::endl;
+				msg[pos--]='a';
+				std::cout << " 2: " << msg << " " << pos << std::endl;
 			}
+					
+		}
+		else if(pos!=msg.size()-1)
+		{
+			msg[pos++]++;
+		}
+		else
+		{
+			msg[pos]++;
+			std::cout << " 1a: " << msg << " " << pos << std::endl;
 		}
 	}
 }
