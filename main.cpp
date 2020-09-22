@@ -2,10 +2,10 @@
 #include <cstddef>
 #include <unistd.h>
 
-int main(int argc, char *argv[]) {
+int main() {
     char selection;
-    std::cout << "Qu'elle methode voulez vous utiliser ? (Sequentiel / MultiThread)"
-    std::cin >> selection
+    std::cout << "Qu'elle methode voulez vous utiliser ? (Sequentiel / MultiThread)";
+    std::cin >> selection;
     switch (selection) {
         case 's':
             break;
