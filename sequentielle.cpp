@@ -29,7 +29,7 @@ std::string FindTextMD5(std::string md5)
 	std::string msg="a";
 	while(md5!=toMD5(msg))
 	{
-		if(msg[pos]=='a')
+		if(msg[pos]=='z')
 		{
 			if(pos==0)
 			{
