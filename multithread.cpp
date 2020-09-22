@@ -31,8 +31,6 @@ std::string toMD5(std::string &_msg)
 std::string FindTextMD5(void* p_struct)
 {
 	struct paramThread_FindTextMD5 *param = (struct paramThread_FindTextMD5 *)p_struct;
-	std::cout << "Recherche de l'empreinte md5 :" << std::endl;
-	std::cout << "Attention cette opération peut prendre du temps" << std::endl;
 	size_t pos=0;
 	std::string msg="";
 	msg+=param->minC;
@@ -47,9 +45,7 @@ std::string FindTextMD5(void* p_struct)
 				msg+=param->minC;
 			}
 			else
-			{
 				msg[pos--]=param->minC;
-			}
 					
 		}
 		else if(pos!=msg.size()-1)
@@ -58,17 +54,26 @@ std::string FindTextMD5(void* p_struct)
 			pos=msg.size()-1;
 		}
 		else
-		{
 			msg[pos]++;
-		}
 	}
 	return msg;
 }
 
 int main(int argc, char *argv[]){
-	
-	if(argc==2)
+	if(argc==3)
 	{
+		try
+		{
+			if(atoi(argv[2])<=0)
+			{
+				std::cerr << "Erreur : nombre de processeurs invalide " << std::endl;
+				return 0;
+			}
+		}
+		catch(std::exception const& e)
+		{
+			std::cerr << "Erreur : " << e.what() << std::endl;
+		}
 		CryptoPP::HexEncoder encoder(new CryptoPP::FileSink(std::cout));
 		std::string msg = argv[1];
 		std::string md5msg = toMD5(msg);
@@ -77,6 +82,9 @@ int main(int argc, char *argv[]){
 		param.md5=md5msg;
 		param.minC='a';
 		param.maxC='z';
+		
+		std::cout << "Recherche de l'empreinte md5 :" << std::endl;
+		std::cout << "Attention cette opération peut prendre du temps" << std::endl;
 		
 		std::string findMsg = FindTextMD5((void*)&param);
 		
