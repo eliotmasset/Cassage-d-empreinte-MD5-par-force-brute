@@ -86,15 +86,15 @@ int main(int argc, char *argv[]){
 		paramThread_FindTextMD5 param[nbProc];
 		
 		
-		for(size_t i=1;i<=nbProc;i++)
+		for(size_t i=0;i<nbProc;i++)
 		{
-			param[i-1].md5=md5msg;
-			param[i-1].minC='a'+(26/nbProc)*(i-1);
-			if(i==nbProc)
-				param[i-1].maxC='a'+(26/nbProc)*i-1+(26%nbProc);
+			param[i].md5=md5msg;
+			param[i].minC='a'+(26/nbProc)*i;
+			if(i+1==nbProc)
+				param[i].maxC='a'+(26/nbProc)*(i+1)-1+(26%nbProc);
 			else
-				param[i-1].maxC='a'+(26/nbProc)*i-1;
-			std::cout << "min : " << param[i-1].minC << " max : " << param[i-1].maxC << std::endl;
+				param[i].maxC='a'+(26/nbProc)*(i+1)-1;
+			std::cout << "min : " << param[i].minC << " max : " << param[i].maxC << std::endl;
 		}
 		
 		
@@ -102,13 +102,13 @@ int main(int argc, char *argv[]){
 		std::cout << "Attention cette opération peut prendre du temps" << std::endl;
 		
 		
-		for(size_t i=1;i<=nbProc;i++)
+		for(size_t i=0;i<nbProc;i++)
 		{
-			pthread_create(&t[i-1], NULL, FindTextMD5,(void*)&param[i-1]);
+			pthread_create(&t[i], NULL, FindTextMD5,(void*)&param[i]);
 		}
-		for(size_t i=1;i<=nbProc;i++)
+		for(size_t i=0;i<nbProc;i++)
 		{
-			pthread_join(t[i-1],NULL);
+			pthread_join(t[i],NULL);
 		}
 		
 		
