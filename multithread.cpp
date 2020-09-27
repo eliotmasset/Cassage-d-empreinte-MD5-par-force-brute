@@ -78,6 +78,7 @@ int main(int argc, char *argv[]){
 		{
 			std::cerr << "Erreur : " << e.what() << std::endl;
 		}
+		
 		CryptoPP::HexEncoder encoder(new CryptoPP::FileSink(std::cout));
 		std::string msg = argv[1];
 		std::string md5msg = toMD5(msg);
@@ -94,7 +95,6 @@ int main(int argc, char *argv[]){
 				param[i].maxC='a'+(26/nbProc)*(i+1)-1+(26%nbProc);
 			else
 				param[i].maxC='a'+(26/nbProc)*(i+1)-1;
-			std::cout << "min : " << param[i].minC << " max : " << param[i].maxC << std::endl;
 		}
 		
 		
