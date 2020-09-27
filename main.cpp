@@ -1,7 +1,4 @@
 #include <iostream>
-#include <cstddef>
-#include <unistd.h>
-#include <stdlib.h>
 #include <chrono>
 
 typedef std::chrono::_V2::steady_clock::time_point timePoint;
@@ -14,7 +11,7 @@ void  execute(timePoint * start,timePoint * end, std::string programme)
     std::cout << "Compilation en cours... " << std::endl;
 
     try{
-    system(("$PWD/aide" + programme +".sh").c_str());}
+    system(("$PWD/../aide" + programme +".sh").c_str());}
     catch(std::exception const& e)
     {std::cerr << "Erreur : " << e.what() << std::endl;}
 

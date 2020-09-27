@@ -1,1 +1,0 @@
-g++ -DNDEBUG -g3 -O2 -Wall -Wextra -pthread -o Sequentielle sequentielle.cpp -l:../../$PWD/cryptopp/libcryptopp.a
