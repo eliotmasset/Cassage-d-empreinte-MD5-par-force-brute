@@ -1,1 +1,1 @@
-g++ -DNDEBUG -g3 -O2 -Wall -Wextra -pthread -o sequentielle sequentielle.cpp -l:../../$PWD/cryptopp/libcryptopp.a
+g++ -DNDEBUG -g3 -O2 -Wall -Wextra -pthread -o Sequentielle sequentielle.cpp -l:../../$PWD/cryptopp/libcryptopp.a
