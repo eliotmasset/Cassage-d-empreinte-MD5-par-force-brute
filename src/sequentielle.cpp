@@ -63,6 +63,10 @@ int main(int argc, char *argv[]){
 		CryptoPP::HexEncoder encoder(new CryptoPP::FileSink(std::cout));
 		std::string msg = argv[1];
 		std::string md5msg = toMD5(msg);
+
+		std::cout << "Recherche de l'empreinte md5 :" << std::endl;
+		std::cout << "Attention cette opération peut prendre du temps" << std::endl;
+
 		std::string findMsg = FindTextMD5(md5msg);
 		
 		std::cout << "L'empreinte md5 : \"" ;
