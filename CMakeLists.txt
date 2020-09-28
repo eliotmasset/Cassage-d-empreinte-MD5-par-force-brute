@@ -6,7 +6,10 @@ project(cassagemd5)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
 # add the executable
-add_executable(cassagemd5 src/main.cpp)
+add_executable(main src/main.cpp)
+add_executable(MultiThread src/main.cpp)
+add_executable(Sequentielle src/main.cpp)
 
-
-target_link_libraries(cassagemd5 ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
+target_link_libraries(main ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
+target_link_libraries(MultiThread ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
+target_link_libraries(Sequentielle ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
