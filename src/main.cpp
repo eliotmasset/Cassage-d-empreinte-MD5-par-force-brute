@@ -8,13 +8,6 @@ void  execute(timePoint * start,timePoint * end, std::string programme)
     std::string param1;
     std::string nbProc;
 
-    std::cout << "Compilation en cours... " << std::endl;
-
-    try{
-    system(("$PWD/../bash/aide" + programme +".sh").c_str());}
-    catch(std::exception const& e)
-    {std::cerr << "Erreur : " << e.what() << std::endl;}
-
     system("clear");
 
     std::cout << "Veuillez renseigner une chaine de caractère : " << std::endl;
