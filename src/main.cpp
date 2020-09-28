@@ -21,7 +21,7 @@ void  execute(timePoint * start,timePoint * end, std::string programme)
     system("clear");
 
     *start = std::chrono::steady_clock::now();
-    system(("./../src/" + programme +" " + param1 + " " + nbProc).c_str());
+    system(("./" + programme +" " + param1 + " " + nbProc).c_str());
     *end = std::chrono::steady_clock::now();
 }
 
