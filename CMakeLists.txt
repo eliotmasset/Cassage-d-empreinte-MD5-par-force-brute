@@ -7,8 +7,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
 # add the executable
 add_executable(main src/main.cpp)
-add_executable(MultiThread src/MultiThread.cpp)
-add_executable(Sequentielle src/Sequentielle.cpp)
+add_executable(MultiThread src/multithread.cpp)
+add_executable(Sequentielle src/sequentielle.cpp)
 
 target_link_libraries(main ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
 target_link_libraries(MultiThread ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
