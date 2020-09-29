@@ -5,6 +5,10 @@ project(cassagemd5)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
+execute_process (
+        COMMAND bash IsLibCryptolibExist.bash
+)
+
 # add the executable
 add_executable(main src/main.cpp)
 add_executable(MultiThread src/multithread.cpp)
