@@ -37,7 +37,7 @@ void* FindTextMD5(void* p_struct)
 	size_t pos=0;
 	std::string msg="";
 	msg+=param->minC;
-	while(param->md5!=toMD5(msg) && !estTrouve)
+	while(param->md5!=toMD5(msg) && estTrouve==false)
 	{
 		if(msg[pos]=='z' && pos!=0)
 		{
@@ -57,7 +57,7 @@ void* FindTextMD5(void* p_struct)
 		else
 			msg[pos]++;
 	}
-	if(!estTrouve)
+	if(estTrouve==false)
 		resultat=msg;
 	estTrouve=true;
 	return NULL;
