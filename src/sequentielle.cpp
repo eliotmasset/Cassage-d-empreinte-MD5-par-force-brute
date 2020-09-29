@@ -52,8 +52,6 @@ std::string FindTextMD5(std::string md5)
 		{
 			msg[pos]++;
 		}
-		std::cout << msg << " " << pos << std::endl;
-		sleep(0.1);
 	}
 	return msg;
 }
