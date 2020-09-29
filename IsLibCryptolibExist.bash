@@ -24,7 +24,6 @@ else
 		fi
 
 	else
-   	 echo "Offline"
+   	 echo "Vous n'êtes pas connecté à internet"
 	fi
-	echo "Extraction librairie"
 fi	
