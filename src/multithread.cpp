@@ -46,8 +46,8 @@ void* FindTextMD5(void* p_struct)
 		else if(msg[pos]==param->maxC && pos==0)
 		{
 			msg[pos]=param->minC;
-			pos=msg.size()-1;
 			msg+='a';
+            pos=msg.size()-1;
 		}
 		else if(pos!=msg.size()-1)
 		{

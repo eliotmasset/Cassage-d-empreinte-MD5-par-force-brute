@@ -17,7 +17,7 @@ else
 			  if [ -e "${crypt}" ]
         then
           echo "Suppression de la librairie avant réinstallation"
-          #rm -rf ${crypt}
+          rm -rf ${crypt}
         fi
 			  echo "Téléchargement et compilation de la librairie"
     				git clone https://github.com/weidai11/cryptopp.git && cd cryptopp && make
