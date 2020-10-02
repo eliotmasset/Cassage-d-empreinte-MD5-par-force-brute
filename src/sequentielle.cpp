@@ -23,8 +23,6 @@ std::string toMD5(std::string &_msg)
 
 std::string FindTextMD5(std::string md5)
 {
-	std::cout << "Recherche de l'empreinte md5 :" << std::endl;
-	std::cout << "Attention cette opération peut prendre du temps" << std::endl;
 	size_t pos=0;
 	std::string msg="a";
 	while(md5!=toMD5(msg))
