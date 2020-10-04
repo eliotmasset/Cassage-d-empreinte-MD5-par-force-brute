@@ -81,8 +81,8 @@ int main(int argc, char *argv[]){
 		//cherche la chaine associé à l'empreinte md5 :
 		std::string findMsg = FindTextMD5(md5msg);
 		
-		std::cout << "L'empreinte md5 : \"" ;
 		//affiche la chaine trouvé :
+		std::cout << "L'empreinte md5 : \"" ;
 		CryptoPP::StringSource(md5msg, true, new CryptoPP::Redirector(encoder));
 		std::cout << "\" est associée à la chaine : \"" << findMsg << "\"." << std::endl;
 		
