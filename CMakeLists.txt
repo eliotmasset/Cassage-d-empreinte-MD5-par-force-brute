@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+#cmake_minimum_required(VERSION 3.7)
 
 # set the project name
 project(cassagemd5)
@@ -17,3 +17,4 @@ add_executable(Sequentielle src/sequentielle.cpp)
 target_link_libraries(main ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
 target_link_libraries(MultiThread ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
 target_link_libraries(Sequentielle ${CMAKE_SOURCE_DIR}/cryptopp/libcryptopp.a)
+
