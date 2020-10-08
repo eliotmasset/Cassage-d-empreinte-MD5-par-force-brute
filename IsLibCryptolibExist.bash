@@ -20,7 +20,7 @@ else
           rm -rf ${crypt}
         fi
 			  echo "Téléchargement et compilation de la librairie"
-    				git clone https://github.com/weidai11/cryptopp.git && cd cryptopp && make
+    				git clone https://github.com/weidai11/cryptopp.git && cd cryptopp && make -j 6
 			else
     				echo "Vous devez avoir le package git"
 			fi
