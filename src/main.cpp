@@ -36,7 +36,7 @@ int main() {
     // créer un caractère et deux points temporels :
     char selection;
     std::chrono::_V2::steady_clock::time_point start, end;
-    std::cout << "Qu'elle methode voulez vous utiliser ? ( s : Sequentiel / m : MultiThread)" << std::endl;
+    std::cout << "Quelle methode voulez-vous utiliser ? ( s : Sequentiel / m : MultiThread)" << std::endl;
     std::cin >> selection;
 
     switch (selection) { // Celon le caractère de selection :
