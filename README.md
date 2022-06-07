@@ -3,9 +3,9 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/eliotmasset/2048/issues/new/choose">Reporter un Bug</a>
+    <a href="https://github.com/eliotmasset/Cassage-d-empreinte-MD5-par-force-brute/issues/new/choose">Reporter un Bug</a>
     ·
-    <a href="https://github.com/eliotmasset/2048/issues/new/choose">Proposer une feature</a>
+    <a href="https://github.com/eliotmasset/Cassage-d-empreinte-MD5-par-force-brute/issues/new/choose">Proposer une feature</a>
 </p>
 
 <p align="center">
@@ -86,9 +86,9 @@ Developpé en France 🇫🇷 !
 </h1>
 
 <p align="center">
-    <a href="https://github.com/eliotmasset/soundZone/issues/new/choose">Report a Bug</a>
+    <a href="https://github.com/eliotmasset/Cassage-d-empreinte-MD5-par-force-brute/issues/new/choose">Report a Bug</a>
     ·
-    <a href="https://github.com/eliotmasset/soundZone/issues/new/choose">Ask a feature</a>
+    <a href="https://github.com/eliotmasset/Cassage-d-empreinte-MD5-par-force-brute/issues/new/choose">Ask a feature</a>
 </p>
 
 <p align="center">
