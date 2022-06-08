@@ -38,7 +38,7 @@ git clone https://github.com/eliotmasset/Cassage-d-empreinte-MD5-par-force-brute
 2. Change de dossier
 
 ```bash
-cd Cassage-d-empreinte-MD5-par-force-brute/src
+cd Cassage-d-empreinte-MD5-par-force-brute
 ```
 
 3. Installe les dépendences
@@ -46,13 +46,15 @@ cd Cassage-d-empreinte-MD5-par-force-brute/src
 ```bash
 sudo apt update
 
-sudo apt-get install g++ build-essential
+sudo apt-get install g++ build-essential cmake
 ```
 
 4. Compile le programme
 
 ```bash
-g++ -o main.exe *.cpp
+sh IsLibCryptolibExist.bash
+
+cmake .
 ```
 
 5. Lance l'éxécutable en double-cliquant dessus
@@ -129,13 +131,15 @@ cd Cassage-d-empreinte-MD5-par-force-brute/src
 ```bash
 sudo apt update
 
-sudo apt-get install g++  build-essential
+sudo apt-get install g++  build-essential cmake
 ```
 
 4. Compile the program
 
 ```bash
-g++ -o main.exe *.cpp
+sh IsLibCryptolibExist.bash
+
+cmake .
 ```
 
 5. Execute by double clicking on main.exe
