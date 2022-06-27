@@ -52,9 +52,9 @@ sudo apt-get install g++ build-essential cmake
 4. Compile le programme
 
 ```bash
-sh IsLibCryptolibExist.bash
-
 cmake .
+
+make
 ```
 
 5. Lance l'éxécutable en double-cliquant dessus
